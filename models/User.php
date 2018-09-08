@@ -10,11 +10,13 @@ class User {
 	public $email;
 	public $password;
 
+	// Connect to the database
 	public function __construct($db) {
 
 		$this->conn = $db;
 	}
 
+	// Check if user is in the database and if the passwords match
 	public function verifyUser($email, $password) {
 
 		$sql = 'SELECT password FROM users WHERE email = :email';
@@ -47,6 +49,7 @@ class User {
 
 	}
 
+	// Check if email user has provided for registration already exists
 	public function checkIfMailExists($email) {
 
 		$sql = 'SELECT * FROM users WHERE email = :email';
@@ -66,21 +69,6 @@ class User {
 
 	}
 
-	public function getUsername($email) {
-
-		$sql = 'SELECT * FROM users WHERE email = :email';
-
-		$stmt = $this->conn->prepare($sql);
-		$stmt->bindValue(':email', $email);
-
-		$stmt->execute();
-
-		$result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-		return $result['username'];
-
-	}
-
 	public static function getRegisterError($message, $path = '/views/register.php') {
 
 		$_SESSION['Error'] = $message;
@@ -94,6 +82,22 @@ class User {
 		header('Location: '. $path);
 
 	}
+
+	// Get username of the user
+	/*public function getUsername($email) {
+
+		$sql = 'SELECT * FROM users WHERE email = :email';
+
+		$stmt = $this->conn->prepare($sql);
+		$stmt->bindValue(':email', $email);
+
+		$stmt->execute();
+
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		return $result['username'];
+
+	}*/
 
 
 }
