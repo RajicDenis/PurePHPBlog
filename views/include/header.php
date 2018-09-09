@@ -30,7 +30,7 @@ define('APPROOT', dirname(dirname(dirname(__FILE__))));
 
 			<ul class="nav site-links">
 				<a href="/views/pages/allPosts.php"><li class="mr-3 ml-2">Posts</li></a>
-				<a href="#"><li class="mr-3">About</li></a>
+				<a href="#"><li class="mr-3">MyPosts</li></a>
 			</ul>	
 
 		    <ul class="nav justify-content-end">

@@ -84,7 +84,7 @@ class User {
 	}
 
 	// Get username of the user
-	/*public function getUsername($email) {
+	public function getUserData($email, $id = false) {
 
 		$sql = 'SELECT * FROM users WHERE email = :email';
 
@@ -95,9 +95,13 @@ class User {
 
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
 
+		if($id) {
+			return $result['id'];
+		}
+		
 		return $result['username'];
 
-	}*/
+	}
 
 
 }

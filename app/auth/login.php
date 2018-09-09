@@ -30,7 +30,8 @@ if (isset($_POST['submit'])) {
 				if($user->verifyUser($email, $_POST['password'])) {
 
 					// If user is found
-					$_SESSION['username'] = $user->getUsername($email);
+					$_SESSION['user_id'] = $user->getUserData($email, true);
+					$_SESSION['username'] = $user->getUserData($email);
 					$_SESSION['email'] = $email;
 					header('Location: /');
 

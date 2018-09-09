@@ -29,4 +29,17 @@ class Post {
 
 	}
 
+	public function paginateAllPosts($offset, $postsPerPage) {
+
+		$sql = 'SELECT * FROM posts p LEFT JOIN categories c ON p.category_id = c.id LIMIT :offset, :postsPerPage';
+
+		$stmt = $this->conn->prepare($sql);
+		$stmt->bindValue(':offset', $offset);
+		$stmt->bindValue(':postsPerPage', $postsPerPage);
+
+		$stmt->execute();
+
+		return $stmt;
+	}
+
 }
