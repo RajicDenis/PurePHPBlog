@@ -1,4 +1,11 @@
-<?php session_start() ?>
+<?php 
+
+session_start();
+
+// Define constants
+define('APPROOT', dirname(dirname(dirname(__FILE__))));
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +13,10 @@
 	<meta charset="UTF-8">
 	<title>SimpleAuth</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/litera/bootstrap.css">
+
+	<link rel="stylesheet" type="text/css" href="/public/css/main.css">
 
 </head>
 <body>
@@ -16,7 +26,13 @@
 	<div class="container">
 	    <a class="navbar-brand" href="/">BlogPost</a>
 
-	    <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+	    <div class="collapse navbar-collapse justify-content-between" id="navbarText">
+
+			<ul class="nav site-links">
+				<a href="/views/pages/allPosts.php"><li class="mr-3 ml-2">Posts</li></a>
+				<a href="#"><li class="mr-3">About</li></a>
+			</ul>	
+
 		    <ul class="nav justify-content-end">
 
 		    	<?php if(!isset($_SESSION['username'])): ?>
@@ -48,3 +64,5 @@
 	</div>
 	
 </nav>
+
+<div class="container">

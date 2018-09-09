@@ -1,0 +1,13 @@
+/* Generel tags */
+a, a:hover {
+	color: black;
+	text-decoration: none;
+}
+a:visited, a:links {
+	color: black;
+}
+
+/* Navbar */
+.site-links>a>li {
+	font-size: 18px;
+}
