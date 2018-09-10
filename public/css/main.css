@@ -14,11 +14,14 @@ a:visited, a:links {
 .site-links>a>li {
 	font-size: 18px;
 }
+.alert {
+	text-align: center !important;
+}
 .container {
 	position: relative;
 }
 .add-blog-btn {
 	position: absolute;
 	right: 0;
-	top: 24px;
+	top: 41.5px;
 }

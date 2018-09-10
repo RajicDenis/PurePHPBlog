@@ -30,7 +30,11 @@ define('APPROOT', dirname(dirname(dirname(__FILE__))));
 
 			<ul class="nav site-links">
 				<a href="/views/pages/allPosts.php"><li class="mr-3 ml-2">Posts</li></a>
-				<a href="#"><li class="mr-3">MyPosts</li></a>
+
+				<?php if(isset($_SESSION['username'])): ?>
+				<a href="/views/pages/allPosts.php?user=<?php echo $_SESSION['user_id'] ?>"><li class="mr-3">MyPosts</li></a>
+				<?php endif; ?>
+
 			</ul>	
 
 		    <ul class="nav justify-content-end">
