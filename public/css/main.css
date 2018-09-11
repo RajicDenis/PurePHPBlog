@@ -9,6 +9,12 @@ a, a:hover {
 a:visited, a:links {
 	color: black;
 }
+.mh-200 {
+	min-height: 200px !important;
+}
+.plr-80 {
+	padding: 0 80px;
+}
 
 /* Navbar */
 .site-links>a>li {
@@ -20,8 +26,14 @@ a:visited, a:links {
 .container {
 	position: relative;
 }
+
+.title-box {
+	min-height: 100px;
+}
 .add-blog-btn {
 	position: absolute;
 	right: 0;
-	top: 41.5px;
+	/*top: 41.5px;*/
+	top: calc((100% - 40px) / 2);
 }
+

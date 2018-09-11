@@ -35,11 +35,17 @@ $allPosts = $paginatePosts->fetchAll(PDO::FETCH_ASSOC);
 <?php if(isset($_SESSION['Error_add'])) : ?><div class="alert alert-danger mt-2"><?php echo $_SESSION['Error_add']; ?></div> <?php endif; ?>
 <?php unset($_SESSION['Error_add']); ?>
 
-<div class="d-flex position-relative">
+<?php if(isset($_SESSION['Edit_post'])) : ?><div class="alert alert-warning mt-2"><?php echo $_SESSION['Edit_post']; ?></div> <?php endif; ?>
+<?php unset($_SESSION['Edit_post']); ?>
+
+<?php if(isset($_SESSION['Error_edit'])) : ?><div class="alert alert-danger mt-2"><?php echo $_SESSION['Error_edit']; ?></div> <?php endif; ?>
+<?php unset($_SESSION['Error_edit']); ?>
+
+<div class="d-flex position-relative title-box align-items-center">
 	<?php if(!isset($_GET['user'])): ?>
-		<h1 class="text-center w-100 mb-5 mt-4">All Blog Posts</h1>
+		<h1 class="text-center w-100 plr-80">All Blog Posts</h1>
 	<?php else: ?>
-		<h1 class="text-center w-100 mb-5 mt-4">My Blog Posts</h1>
+		<h1 class="text-center w-100 plr-80">My Blog Posts</h1>
 	<?php endif; ?>
 
 	<?php if(isset($_SESSION['username'])): ?>
@@ -53,9 +59,13 @@ $allPosts = $paginatePosts->fetchAll(PDO::FETCH_ASSOC);
 	<?php foreach($allPosts as $post): ?>
 		
 		<div class="blog-post mb-4">
-			<h4 class="blog-title"><?php echo $post['title']; ?></h4>
+			<h4 class="blog-title mb-3"><?php echo $post['title']; ?></h4>
 			<p class="blog-text"><?php echo ((strlen($post['body']) > 500) ? substr($post['body'], 0, 500).'...' : $post['body']) ?></p>
-			<a class="btn btn-primary" href="#">Read more</a>
+			<form action="readPost.php" method="POST">
+				<input type="hidden" name="pid" value="<?php echo $post['id']; ?>">
+				<button class="btn btn-primary" type="submit">Read more</button>
+			</form>
+			
 		</div>
 
 		<hr>

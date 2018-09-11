@@ -16,7 +16,7 @@ define('APPROOT', dirname(dirname(dirname(__FILE__))));
 	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
 	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/litera/bootstrap.css">
 
-	<link rel="stylesheet" type="text/css" href="/public/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/main.css?version=1">
 
 </head>
 <body>

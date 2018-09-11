@@ -1,12 +1,5 @@
 <?php include '../include/header.php'; ?>
 
-<?php
-
-require_once APPROOT . '/config/Database.php';
-require_once APPROOT . '/models/Post.php';
-
-?>
-
 <h1 class="text-center w-100 mb-5 mt-4">Add New Post</h1>
 
 <hr>
@@ -32,3 +25,4 @@ require_once APPROOT . '/models/Post.php';
   </div>
 </form>
 
+<?php include '../include/footer.php'; ?>
