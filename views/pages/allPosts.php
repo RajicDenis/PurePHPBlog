@@ -24,7 +24,7 @@ $offset = ($pageNbr - 1) * $postsPerPage;
 $total_pages = ceil($rowCount / $postsPerPage);
 
 $paginatePosts = (isset($_GET['user']) ? $post->paginateAllPosts($offset, $postsPerPage, $_GET['user']) : $post->paginateAllPosts($offset, $postsPerPage)); 
-//$paginatePosts = $post->paginateAllPosts($offset, $postsPerPage);
+
 $allPosts = $paginatePosts->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
@@ -40,6 +40,10 @@ $allPosts = $paginatePosts->fetchAll(PDO::FETCH_ASSOC);
 
 <?php if(isset($_SESSION['Error_edit'])) : ?><div class="alert alert-danger mt-2"><?php echo $_SESSION['Error_edit']; ?></div> <?php endif; ?>
 <?php unset($_SESSION['Error_edit']); ?>
+
+
+<?php if(isset($_SESSION['Del_post'])) : ?><div class="alert alert-success mt-2"><?php echo $_SESSION['Del_post']; ?></div> <?php endif; ?>
+<?php unset($_SESSION['Del_post']); ?>
 
 <div class="d-flex position-relative title-box align-items-center">
 	<?php if(!isset($_GET['user'])): ?>
@@ -61,10 +65,20 @@ $allPosts = $paginatePosts->fetchAll(PDO::FETCH_ASSOC);
 		<div class="blog-post mb-4">
 			<h4 class="blog-title mb-3"><?php echo $post['title']; ?></h4>
 			<p class="blog-text"><?php echo ((strlen($post['body']) > 500) ? substr($post['body'], 0, 500).'...' : $post['body']) ?></p>
-			<form action="readPost.php" method="POST">
-				<input type="hidden" name="pid" value="<?php echo $post['id']; ?>">
-				<button class="btn btn-primary" type="submit">Read more</button>
-			</form>
+			<div class="d-flex justify-content-between">
+				<form action="readPost.php" method="POST">
+					<input type="hidden" name="pid" value="<?php echo $post['id']; ?>">
+					<button class="btn btn-primary" type="submit">Read more</button>
+				</form>
+
+				<?php if(isset($_SESSION['username']) && $_SESSION['user_id'] == $post['userId']): ?>
+				<form id="delForm" action="/app/deletePost.php" method="POST">
+					<input type="hidden" name="pid" value="<?php echo $post['id']; ?>">
+					<button class="icon-box" type="submit"><i class="fas fa-trash-alt"></i></button>
+				</form>
+				<?php endif; ?>
+				
+			</div>
 			
 		</div>
 

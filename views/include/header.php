@@ -13,8 +13,8 @@ define('APPROOT', dirname(dirname(dirname(__FILE__))));
 	<meta charset="UTF-8">
 	<title>SimpleAuth</title>
 
-	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
 	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/litera/bootstrap.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 	<link rel="stylesheet" type="text/css" href="/public/css/main.css?version=1">
 

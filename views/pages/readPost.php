@@ -27,6 +27,14 @@ if(isset($_POST['pid'])) {
 
 ?>
 	<div class="d-flex position-relative title-box align-items-center">
+		
+		<?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $singlePost['user_id']): ?>
+			<form id="delForm" action="/app/deletePost.php" method="POST">
+				<input type="hidden" name="pid" value="<?php echo $singlePost['id']; ?>">
+				<button class="icon-box add-blog-btn left" type="submit"><i class="fas fa-trash-alt"></i></button>
+			</form>
+		<?php endif; ?>
+
 		<h2 class="text-center w-100 plr-80"><?php echo $singlePost['title']; ?></h2>
 
 		<?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $singlePost['user_id']): ?>
@@ -35,6 +43,7 @@ if(isset($_POST['pid'])) {
 				<button class="add-blog-btn btn btn-warning" type="submit">Edit</button>
 			</form>
 		<?php endif; ?>
+
 	</div>
 
 	<hr>

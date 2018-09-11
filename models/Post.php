@@ -128,4 +128,17 @@ class Post {
 
 	}
 
+	public function deletePost($id) {
+
+		$sql = 'DELETE FROM posts WHERE id = :id';
+
+		$stmt = $this->conn->prepare($sql);
+		$stmt->bindValue(':id', $id);
+
+		$stmt->execute();
+
+		return $stmt;
+
+	}
+
 }
