@@ -21,6 +21,7 @@ class Post {
 		$this->conn = $db;
 	}
 
+	// Get all posts or get all posts from a certain user
 	public function getAllPosts($userId = null) { 
 
 		if(isset($userId)) {
@@ -49,6 +50,7 @@ class Post {
 
 	}
 
+	// Paginate all posts
 	public function paginateAllPosts($offset, $postsPerPage, $userId = null) {
 
 		if(isset($userId)) {
@@ -78,6 +80,7 @@ class Post {
 		return $stmt;
 	}
 
+	// Add a post to the DB
 	public function addPost($update = false) {
 
 		if(!$update) {
@@ -112,6 +115,7 @@ class Post {
 
 	}
 
+	// Show one post
 	public function readPost() {
 
 		$sql = 'SELECT 
@@ -128,6 +132,7 @@ class Post {
 
 	}
 
+	// Delete selected post
 	public function deletePost($id) {
 
 		$sql = 'DELETE FROM posts WHERE id = :id';
